@@ -1,7 +1,7 @@
 ﻿using BenchmarkDotNet.Attributes;
 using BenchmarkDotNet.Running;
 using QuickGraph;
-using QuickGraph.Algorithms.Search;
+using QuickGraph.Algorithms.ConnectedComponents;
 using System;
 using Xunit;
 
@@ -47,13 +47,9 @@ namespace Acomp5
             {
                 Graph.AddVerticesAndEdge(new Edge<int>(Array1[i,0], Array1[i, 1]));
             }
-            DepthFirstSearchAlgorithm<int, Edge<int>> dfs = new DepthFirstSearchAlgorithm<int, Edge<int>>(Graph);
-            int count = 0;
-            dfs.StartVertex += new VertexAction<int>(edge => {
-                ++count;
-            });
-            dfs.Compute();
-            Assert.True(count == 1);
+            StronglyConnectedComponentsAlgorithm<int, Edge<int>> tarjan = new StronglyConnectedComponentsAlgorithm<int, Edge<int>>(Graph);
+            tarjan.Compute();
+            Assert.True(false);
         }
 
         [Fact]
@@ -64,13 +60,9 @@ namespace Acomp5
             {
                 Graph.AddVerticesAndEdge(new Edge<int>(Array2[i, 0], Array2[i, 1]));
             }
-            DepthFirstSearchAlgorithm<int, Edge<int>> dfs = new DepthFirstSearchAlgorithm<int, Edge<int>>(Graph);
-            int count = 0;
-            dfs.StartVertex += new VertexAction<int>(edge => {
-                ++count;
-            });
-            dfs.Compute();
-            Assert.False(count == 1);
+            StronglyConnectedComponentsAlgorithm<int, Edge<int>> tarjan = new StronglyConnectedComponentsAlgorithm<int, Edge<int>>(Graph);
+            tarjan.Compute();
+            Assert.False(true);
         }
 
         [Fact]
@@ -81,13 +73,9 @@ namespace Acomp5
             {
                 Graph.AddVerticesAndEdge(new Edge<int>(Array3[i, 0], Array3[i, 1]));
             }
-            DepthFirstSearchAlgorithm<int, Edge<int>> dfs = new DepthFirstSearchAlgorithm<int, Edge<int>>(Graph);
-            int count = 0;
-            dfs.StartVertex += new VertexAction<int>(edge => {
-                ++count;
-            });
-            dfs.Compute();
-            Assert.False(count==1);
+            StronglyConnectedComponentsAlgorithm<int, Edge<int>> tarjan = new StronglyConnectedComponentsAlgorithm<int, Edge<int>>(Graph);
+            tarjan.Compute();
+            Assert.False(true);
         }
 
         static void Main(string[] args)
