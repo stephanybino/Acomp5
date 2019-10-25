@@ -49,7 +49,7 @@ namespace Acomp5
             }
             StronglyConnectedComponentsAlgorithm<int, Edge<int>> tarjan = new StronglyConnectedComponentsAlgorithm<int, Edge<int>>(Graph);
             tarjan.Compute();
-            Assert.True(false);
+            Assert.True(tarjan.ComponentCount == 1);
         }
 
         [Fact]
@@ -62,7 +62,7 @@ namespace Acomp5
             }
             StronglyConnectedComponentsAlgorithm<int, Edge<int>> tarjan = new StronglyConnectedComponentsAlgorithm<int, Edge<int>>(Graph);
             tarjan.Compute();
-            Assert.False(true);
+            Assert.False(tarjan.ComponentCount == 1);
         }
 
         [Fact]
@@ -75,7 +75,7 @@ namespace Acomp5
             }
             StronglyConnectedComponentsAlgorithm<int, Edge<int>> tarjan = new StronglyConnectedComponentsAlgorithm<int, Edge<int>>(Graph);
             tarjan.Compute();
-            Assert.False(true);
+            Assert.False(tarjan.ComponentCount == 1);
         }
 
         static void Main(string[] args)
